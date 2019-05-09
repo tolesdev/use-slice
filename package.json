@@ -1,0 +1,50 @@
+{
+  "name": "use-slice",
+  "version": "0.0.5-alpha",
+  "description": "A React hook designed to make managing local state a breeze.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && babel --out-dir dist --ignore **/*.test.js src",
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btoles/use-slice.git"
+  },
+  "keywords": [
+    "state",
+    "management",
+    "usereducer",
+    "slice",
+    "use-slice",
+    "usehooks"
+  ],
+  "author": "B.Toles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/btoles/use-slice/issues"
+  },
+  "homepage": "https://github.com/btoles/use-slice#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "jest-extended": "^0.11.1",
+    "react-hooks-testing-library": "^0.5.0",
+    "react-test-renderer": "^16.8.6",
+    "rimraf": "^2.6.3",
+    "semantix": "^0.10.7"
+  },
+  "dependencies": {
+    "immer": "^3.1.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

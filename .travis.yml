@@ -1,0 +1,35 @@
+stages:
+  - name: next
+    if: tag IS blank
+  - name: release
+    if: branch = master AND tag IS blank
+  - name: publish
+    if: branch = master AND tag IS blank
+
+language: node_js
+
+node_js:
+  - "10"
+
+jobs:
+  include:
+    - stage: next
+      cache: npm
+      script: npx semantix next
+
+    - stage: release
+      cache: npm
+      script: npx semantix release
+
+    - stage: publish
+      cache: npm
+      script:
+        - export NODE_ENV=production
+        - export BABEL_ENV=production
+        - npm run build
+        - npx semantix update
+      deploy:
+        skip_cleanup: true
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_TOKEN
