@@ -14,27 +14,29 @@ import { useSlice } from 'use-slice';
 
 function EditInfo() {
     // Default state of a our slice (person)
-    const initialState = { name: '', age: null }
+    const initialState = { name: '', birthdate: '', age: '' }
 
     // Actions that can be performed on our slice of state
     const reducers = {
-        setName(state, payload) {
-            state.name = payload
+        setName(state, name) {
+            state.name = name
             return state
         },
-        setAge(state, payload) {
-            state.age = payload
+        setBirthdate(state, birthdate) {
+            state.birthdate = birthdate;
+            state.age = getYearsSince(birthdate);
             return state
-        }
+        },
     };
 
     // The current state of our slice, the dispatcher, and its actions
     const [state, dispatch, actions] = useSlice(initialState, reducers)
-    const { setName, setAge } = actions;
+    const { name, birthdate, age } = state;
+    const { setName, setBirthdate } = actions;
 
     // Handlers that can be used to update our slice
     const updateName = name => dispatch(setName(name))
-    const updateAge = age => dispatch(setAge(age))
+    const updateBirthdate = birthdate => dispatch(setBirthdate(birthdate))
 
     return ( ... );
 }
